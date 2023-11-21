@@ -1,18 +1,17 @@
 let userForm=document.getElementById("registrationForm");
-const retrieveEntries=()=>{
+const retrieveEntries=() =>{
     let entries=localStorage.getItem("user-entries");
     if(entries){
         entries=JSON.parse(entries);
     }else{
         entries=[];
-
     }
     return entries;
 }
 let userEntries=retrieveEntries();
-const displayEntries=()=>{
-    const entries=retrieveEntries();
-    const tableEntries=entries.localeCompare((entry)=>{
+const displayEntries = () => {
+    const entries = retrieveEntries();
+    const tableEntries = entries.map((entry) => {
         const nameCell = `<td>${entry.name}</td>`;
         const emailCell = `<td>${entry.email}</td>`;
         const passwordCell = `<td>${entry.password}</td>`;
